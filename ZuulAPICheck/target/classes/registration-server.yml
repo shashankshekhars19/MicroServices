@@ -1,0 +1,19 @@
+# Configure this Discovery Server
+eureka:
+  instance:
+    hostname: localhost
+  client:  # Not a client, don't register with yourself
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+zuul:
+  routes:
+    address:
+      path: /address/**
+      url : ADDRESS
+    customer:
+      path: /customer/**
+      serviceId: CUSTOMER-SERVICE
+
+
+server:
+  port: 1041   # HTTP (Tomcat) port
